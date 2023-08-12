@@ -1,10 +1,10 @@
 # Variety
 
-Variety is a wallpaper manager for Linux systems. It supports out-of-the-box most Linux desktop environments, and can be configured to work 
+Variety is a wallpaper manager for Linux systems. It supports out-of-the-box most Linux desktop environments, and can be configured to work
 on more esoteric ones.
 
-It can use local images or automatically download wallpapers from Flickr, Wallhaven, Unsplash, Bing, Reddit and other online sources, 
-allows you to rotate them on a regular interval, and provides easy ways to separate the great images from the junk. 
+It can use local images or automatically download wallpapers from Flickr, Wallhaven, Unsplash, Bing, Reddit and other online sources,
+allows you to rotate them on a regular interval, and provides easy ways to separate the great images from the junk.
 Variety can also display wise and funny quotations or a nice digital clock on the desktop.
 
 Where supported, Variety sits as a tray icon to allow easy pausing and resuming.
@@ -78,11 +78,35 @@ See `debian/control` for an equivalent list of runtime dependencies on Debian/Ub
 
 #### Install steps
 
-1. Clone the git repository: `git clone https://github.com/varietywalls/variety.git && cd variety`
-
-2. Run `python3 setup.py install`. By default, this will install Variety into `/usr/local`; for a local installation, use `python3 setup.py install --prefix $HOME/.local`.
-
-3. Run `variety` from the command line or its desktop menu entry.
+* Install system dependencies.
+    ```bash
+    sudo apt install pkg-config -y;
+    sudo apt install libcairo2-dev -y;
+    sudo apt install libgirepository1.0-dev -y;
+    ```
+* Clone the Variety git repository.
+    ```bash
+    git clone https://github.com/varietywalls/variety.git && cd variety;
+    ```
+* Create a virtual python environment and use it.
+    ```bash
+    python3 -m venv venv && source venv/bin/activate;
+    ```
+* Install python-distutils-extra.
+    ```bash
+    pip install distutils-extra-python;
+    ```
+* Install Variety's dependencies.
+    ```bash
+    pip3 install -r requirements.txt;
+    ```
+* Run setup.
+    ```bash
+    python3 setup.py install; # installs into /usr/local
+    # OR
+    python3 setup.py install --prefix $HOME/.local; # installs locally
+    ```
+* Run `variety` from the command line or its desktop menu entry.
 
 ## Launching
 
